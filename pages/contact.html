@@ -27,19 +27,78 @@
     </header>
 
     <div class="form-contenedor">
-      <form method="POST" class="form-contact">
-        <label>Nombre</label>
-        <input type="text" class="input-form" />
-
-        <label>Apellido</label>
-        <input type="text" class="input-form" />
-
-        <label>Mensaje</label>
-        <input type="text" class="input-form" />
-
-        <label>Email</label>
-        <input type="email" class="input-form" />
-
+      <form class="form-contact" id="contactForm">
+        <div class="div">
+          <label class="label-form" for="nombre">Nombre</label>
+          <input
+            type="text"
+            class="input-form"
+            placeholder="Nombre"
+            id="nombre"
+          />
+          <span class="error-message" id="error-nombre"></span>
+        </div>
+        <div class="div">
+          <label class="label-form" for="apellido">Apellido</label>
+          <input
+            type="text"
+            class="input-form"
+            placeholder="Apellido"
+            id="apellido"
+          />
+          <span class="error-message" id="error-apellido"></span>
+        </div>
+        <div class="div">
+          <label class="label-form" for="email">Email</label>
+          <input
+            type="email"
+            id="email"
+            class="input-form"
+            placeholder="email@ejemplo.com"
+          />
+          <span class="error-message" id="error-email"></span>
+        </div>
+        <div class="div">
+          <label class="label-form" for="mensaje">Mensaje</label>
+          <textarea
+            id="mensaje"
+            class="input-form textarea-form"
+            name="mensaje"
+            placeholder="Ingrese su mensaje"
+          ></textarea>
+          <span class="error-message" id="error-msg"></span>
+        </div>
+        <div class="div">
+          <label class="label-form">Indique su género</label>
+          <div class="div-radio">
+            <label class="label-sexo" for="masc">Masculino</label>
+            <input type="radio" name="sexo" id="masc" value="masc" />
+          </div>
+          <div class="div-radio">
+            <label class="label-sexo" for="fem">Femenino</label>
+            <input type="radio" name="sexo" id="fem" value="fem" />
+          </div>
+          <div class="div-radio">
+            <label class="label-sexo" for="other">Otro</label>
+            <input type="radio" name="sexo" id="other" value="other" />
+          </div>
+          <div id="other-gender-container" class="div-other-gen">
+            <label for="other-gender" class="label-form">Especifique</label>
+            <input
+              type="text"
+              id="other-gender"
+              name="other-gender"
+              placeholder="Ingrese su género"
+              class="input-form-especify"
+            />
+          </div>
+        </div>
+        <!-- <div class="div">
+          <label for="select-option">Indique el motivo de su contacto</label>
+          <select name="select-option" id="select-option">
+            <option value="" selected></option>
+          </select>
+        </div> -->
         <input type="submit" class="button-form" value="Enviar" />
       </form>
     </div>
@@ -73,5 +132,6 @@
         </a>
       </div>
     </footer>
+    <script src="../js/contactForm.js"></script>
   </body>
 </html>
