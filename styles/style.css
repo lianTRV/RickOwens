@@ -111,10 +111,6 @@ footer {
   margin: 20px;
 }
 
-.container-tres-footer p {
-  display: inline-block;
-  margin: 20px;
-}
 
 .segundo-container-footer a {
   display: inline-block;
@@ -134,6 +130,23 @@ footer {
 .segundo-container-footer p {
   display: inline-block;
   font-size: 15px;
+}
+
+.container-tres-footer{
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.container-tres-footer a{
+  color: white;
+  text-decoration: none;
+  font-family: "Playfair Display", serif;
+  transition: 0.5s;
+}
+
+.container-tres-footer a:hover{
+  color: rgb(54, 54, 54);
+  transition: 0.5s;
 }
 
 @media (max-width: 442px) {
