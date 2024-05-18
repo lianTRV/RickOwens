@@ -331,11 +331,41 @@ footer {
 }
 
 .form-contact {
-  display: flex;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
   flex-direction: column;
   align-items: center;
   background-color: rgb(3, 3, 3);
-  width: 80%;
+  width: 50%;
+}
+.div {
+  display: flex;
+  width: 90%;
+  margin-left: 10px;
+  flex-direction: column;
+}
+
+.label-form {
+  display: flex;
+  align-items: start;
+  margin-left: 10px;
+}
+
+.label-sexo {
+  width: 50%;
+  display: flex;
+  margin-left: 10px;
+}
+
+.div-radio {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+
+.div-other-gen {
+  display: none;
 }
 
 form label {
@@ -350,7 +380,30 @@ form label {
   margin: 10px;
   border-radius: 10px;
   border: none;
+  padding-left: 5px;
 }
+
+.input-form-especify {
+  width: 100%;
+  height: 30px;
+  margin: 10px;
+  border-radius: 10px;
+  border: none;
+  padding-left: 5px;
+}
+
+.textarea-form {
+  align-items: center;
+  justify-content: center;
+}
+
+.error-message {
+  color: red;
+  font-size: 0.875em;
+  margin-top: 3px;
+  display: none;
+}
+
 .button-form {
   width: 100%;
   height: 3em;
@@ -368,7 +421,7 @@ form label {
   height: 34%;
 }
 
-@media (min-width: 768px) {
+@media (max-width: 768px) {
   .form-contact {
     display: flex;
     flex-direction: column;
