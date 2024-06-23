@@ -1,0 +1,58 @@
+[
+  {
+    "id": 1,
+    "nombre": "Camiseta Básica",
+    "categoria": "Camisetas",
+    "descripcion": "Camiseta de algodón 100% en varios colores.",
+    "precio": 12.99
+  },
+  {
+    "id": 2,
+    "nombre": "Jeans Skinny",
+    "categoria": "Pantalones",
+    "descripcion": "Jeans ajustados con un diseño moderno y cómodo.",
+    "precio": 39.99
+  },
+  {
+    "id": 3,
+    "nombre": "Chaqueta de Cuero",
+    "categoria": "Chaquetas",
+    "descripcion": "Chaqueta de cuero auténtico, ideal para un look casual.",
+    "precio": 89.99
+  },
+  {
+    "id": 4,
+    "nombre": "Vestido de Verano",
+    "categoria": "Vestidos",
+    "descripcion": "Vestido ligero y fresco, perfecto para días calurosos.",
+    "precio": 29.99
+  },
+  {
+    "id": 5,
+    "nombre": "Sudadera con Capucha",
+    "categoria": "Sudaderas",
+    "descripcion": "Sudadera con capucha de felpa suave, disponible en varios colores.",
+    "precio": 24.99
+  },
+  {
+    "id": 6,
+    "nombre": "Zapatos Deportivos",
+    "categoria": "Calzado",
+    "descripcion": "Zapatos deportivos con buena amortiguación, ideales para correr.",
+    "precio": 49.99
+  },
+  {
+    "id": 7,
+    "nombre": "Blusa de Seda",
+    "categoria": "Blusas",
+    "descripcion": "Blusa de seda elegante, perfecta para ocasiones formales.",
+    "precio": 45.0
+  },
+  {
+    "id": 8,
+    "nombre": "Falda Plisada",
+    "categoria": "Faldas",
+    "descripcion": "Falda plisada con un diseño moderno y versátil.",
+    "precio": 35.5
+  }
+]
