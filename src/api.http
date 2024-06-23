@@ -1,0 +1,39 @@
+### Recuperar todos los productos
+GET http://localhost:3000/products
+
+### Recuperar un producto por id
+GET http://localhost:3000/products/2
+
+
+### Crear un producto
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "nombre": "Camiseta divertida",
+    "categoria": "Camisetas",
+    "descripcion": "Camiseta de algodón 100% con muchas estampas",
+    "precio": 120
+}
+
+### Actualizar un producto
+PATCH http://localhost:3000/products/2
+Content-Type: application/json
+
+{
+    "nombre": "Camiseta divertida patch"
+}
+
+
+
+### FILTRAR POR GENERO
+
+GET http://localhost:3000/products/Hombre
+
+
+
+POST http://localhost:3000/products/admin/superAdmin/crearProducto
+
+
+
+
