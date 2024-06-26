@@ -60,6 +60,7 @@ router.post("/create", (req, res) => {
 
 
 
+// Ruta para eliminar un producto por ID
 router.delete("/:id", (req, res) => {
   const { id } = req.params; // Obtengo el ID de los parámetros
   const index = products.findIndex((product) => product.id == id); // Busco el índice del producto por ID
@@ -71,6 +72,20 @@ router.delete("/:id", (req, res) => {
   res.status(404).json("Product not found"); // Si no existe el producto devuelvo un 404
 });
 
+
+
+// Ruta para modificar un producto por ID
+router.put("/:id", (req, res) => {
+  const { id } = req.params; // Obtengo el ID de los parámetros
+  const updatedProduct = req.body; // Obtengo los datos actualizados del cuerpo de la solicitud
+  const index = products.findIndex((product) => product.id == id); // Busco el índice del producto por ID
+  if (index !== -1) {
+    products[index] = { ...products[index], ...updatedProduct }; // Actualizo el producto
+    writeProducts(products); // Guardo los cambios en el archivo JSON
+    return res.json({ message: "Product updated successfully" });
+  }
+  res.status(404).json("Product not found"); // Si no existe el producto devuelvo un 404
+});
 */
 
 module.exports = router; // Asegúrate de exportar el router correctamente
