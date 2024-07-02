@@ -4,13 +4,13 @@ const productsRouter = require("./routes/products"); // router = routes (¿?)
 const app = express();
 app.use(express.json()); // Para poder usar el cuerpo de las peticiones
 
-/* 
+
 const adminRoutes = require('./routes/admin');
 app.use(express.urlencoded({ extended: true }));
 
 // Use the admin routes
 app.use('/productos/admin', adminRoutes); // Cambiar productos por products (¿?)
-*/
+
 
 app.use("/products", productsRouter);
 

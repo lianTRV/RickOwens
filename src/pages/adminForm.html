@@ -1,30 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin</title>
+    <link rel="stylesheet" href="../../public/styles/styleadmin.css" />
 </head>
 <body>
-    <h1> Agregar producto </h1>
-    <form action="/productos/admin/superAdmin/crearProducto" method="post"> <!-- Modificar action ?¿ -->
-        <!--Action en ruta escondida (¿?)-->
-        <label for="id">ID:</label>
-        <input type="text" id="id" name="id" required><br><br>
+    <form action="/productos/admin/superAdmin/crearProducto" method="post"> 
+        <h1 class="titulo-superAdmin"> AGREGAR PRODUCTO </h1>
         
-        <label for="name">Nombre:</label>
+        <label for="name" class="campo-form-superAdmin">Nombre:</label>
         <input type="text" id="name" name="name" required><br><br>
+
+        <label for="image" class="campo-form-superAdmin">Imagen:</label>
+        <input type="file" id="image" name="image" accept="image/*" required><br><br>
         
-        <label for="price">Precio:</label>
+        <label for="price" class="campo-form-superAdmin">Precio:</label>
         <input type="number" id="price" name="price" required><br><br>
+
+        <label for="talle" class="campo-form-superAdmin">Talle:</label>
+        <input type="number" id="talle" name="talle " required><br><br>
         
-        <label for="description">Descripcion:</label>
+        <label for="description" class="campo-form-superAdmin">Descripcion:</label>
         <textarea id="description" name="description" required></textarea><br><br>
         
-        <label for="categoria">Categoria:</label>
+        <label for="categoria" class="campo-form-superAdmin">Categoria:</label>
         <input type="text" id="categoria" name="categoria" required><br><br>
         
-        <label for="genero">Genero:</label>
+        <label for="genero" class="campo-form-superAdmin">Genero:</label>
         <input type="text" id="genero" name="genero" required><br><br>
         
         <button type="submit">Agregar producto</button>

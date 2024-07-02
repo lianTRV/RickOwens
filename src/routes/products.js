@@ -2,7 +2,7 @@ const products = require("../data/products.json"); // Importo el array de produc
 const express = require("express");
 const router = express.Router();
 
-/*
+
 const fs = require("fs");
 const path = require("path");
 // AGREGO ESTOS MODULOS PARA OPERACIONES CON ARCHIVOS
@@ -16,7 +16,7 @@ const writeProducts = (products) => {
     fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2), 'utf8');
 };
 // FUNCION PARA ESCRIBIR PRODUCTOS EN EL JSON
-*/
+
 
 // Ruta para obtener productos por categoría o todos los productos
 router.get("/", (req, res) => {
@@ -49,7 +49,7 @@ router.get("/:genero", (req, res) => {
   res.status(404).json("Products not found"); // Si no existen devuelvo un 404
 });
 
-/*
+
 // Ruta para crear un nuevo producto
 router.post("/create", (req, res) => {
   const newProduct = req.body;
@@ -86,6 +86,6 @@ router.put("/:id", (req, res) => {
   }
   res.status(404).json("Product not found"); // Si no existe el producto devuelvo un 404
 });
-*/
+
 
 module.exports = router; // Asegúrate de exportar el router correctamente

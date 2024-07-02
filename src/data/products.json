@@ -1,24 +1,10 @@
 [
   {
-    "id": 1,
-    "nombre": "Camiseta Básica",
-    "categoria": "Camisetas",
-    "descripcion": "Camiseta de algodón 100% en varios colores.",
-    "precio": 12.99
-  },
-  {
     "id": 2,
     "nombre": "Jeans Skinny",
     "categoria": "Pantalones",
     "descripcion": "Jeans ajustados con un diseño moderno y cómodo.",
     "precio": 39.99
-  },
-  {
-    "id": 3,
-    "nombre": "Chaqueta de Cuero",
-    "categoria": "Chaquetas",
-    "descripcion": "Chaqueta de cuero auténtico, ideal para un look casual.",
-    "precio": 89.99
   },
   {
     "id": 4,
@@ -46,7 +32,7 @@
     "nombre": "Blusa de Seda",
     "categoria": "Blusas",
     "descripcion": "Blusa de seda elegante, perfecta para ocasiones formales.",
-    "precio": 45.0
+    "precio": 45
   },
   {
     "id": 8,

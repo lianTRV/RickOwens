@@ -31,9 +31,21 @@ Content-Type: application/json
 GET http://localhost:3000/products/Hombre
 
 
+###asd
+POST http://localhost:3000/productos/admin/superAdmin/crearProducto
 
-POST http://localhost:3000/products/admin/superAdmin/crearProducto
 
+
+### ASD
+POST http://localhost:3000/products/create
+Content-Type: application/json
+
+{
+    "nombre": "Remera",
+    "categoria": "Camiseta",
+    "descripcion": "Camiseta de algodón 100% con muchas estampas",
+    "precio": 200
+}
 
 
 
