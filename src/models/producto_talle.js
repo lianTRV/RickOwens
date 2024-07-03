@@ -1,21 +1,30 @@
-const products = require("../data/products.json"); // Importo el array de productos
 const express = require("express");
 const router = express.Router();
+const products = require("../data/products.json"); // Importo el array de productos
 
+
+// const bodyParser = require('body-parser');
+// agregar body parser en products.js y productoTalle.js ?????
+
+
+//const productoTalleController = require("../controllers/productoTalleController.js") ;
 
 const fs = require("fs");
 const path = require("path");
 // AGREGO ESTOS MODULOS PARA OPERACIONES CON ARCHIVOS
 
-
 const productsFilePath = path.join(__dirname, '../data/products.json');
 // CONEXION PATH CON ARCHIVO JSON
 
+module.exports = router; // Asegúrate de exportar el router correctamente
 
 const writeProducts = (products) => {
     fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2), 'utf8');
 };
 // FUNCION PARA ESCRIBIR PRODUCTOS EN EL JSON
+
+
+
 
 
 // Ruta para obtener productos por categoría o todos los productos
@@ -30,6 +39,23 @@ router.get("/", (req, res) => {
   }
   res.json(products); // Devuelve todos los productos si no hay categoría
 });
+// ESTO DE ARRIBA SE BORRARIA
+
+/* // Ruta para obtener todos los talles
+router.get('/talles', (req, res) => {
+  const sql = 'SELECT * FROM producto_talle';
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Error ejecutando la consulta:', err);
+      res.status(500).send('Error en el servidor');
+      return;
+    }
+    res.json(results);
+  });
+});
+*/
+
+
 
 // Ruta para obtener un producto por ID
 router.get("/:id", (req, res) => {
@@ -38,16 +64,24 @@ router.get("/:id", (req, res) => {
   if (product) return res.json(product); // Si existe el producto lo devuelvo
   res.status(404).json("Product not found"); // Si no existe devuelvo un 404
 });
+// ESTO DE ARRIBA SE BORRARIA
 
-// Ruta para obtener un producto por género
-router.get("/:genero", (req, res) => {
-  const { genero } = req.params; // Obtengo el género de los parámetros
-  const filteredProducts = products.filter(
-    (product) => product.genero == genero
-  ); // Busco los productos por género
-  if (filteredProducts.length > 0) return res.json(filteredProducts); // Si existen productos los devuelvo
-  res.status(404).json("Products not found"); // Si no existen devuelvo un 404
+/*
+// RUTA PARA OBTENER LOS TALLES DE UN ID
+router.get('/talles/:id', (req, res) => {
+  const productId = req.params.id;
+  const sql = 'SELECT talle FROM producto_talle WHERE id = ?';
+  db.query(sql, [productId], (err, results) => {
+    if (err) {
+      console.error('Error ejecutando la consulta:', err);
+      res.status(500).send('Error en el servidor');
+      return;
+    }
+    res.json(results);
+  });
 });
+*/
+
 
 
 // Ruta para crear un nuevo producto
@@ -57,6 +91,25 @@ router.post("/create", (req, res) => {
   writeProducts(products);
   res.status(201).json({ message: "Product created successfully" });
 });
+// ESTO DE ARRIBA SE BORRARIA
+
+/*
+// Ruta para crear un nuevo talle para un producto
+  router.post('/talles', (req, res) => {
+  const { id, talle } = req.body;
+  const sql = 'INSERT INTO producto_talle (id, talle) VALUES (?, ?)';
+  
+  db.query(sql, [id, talle], (err, results) => {
+    if (err) {
+      console.error('Error ejecutando la consulta:', err);
+      res.status(500).send('Error en el servidor');
+      return;
+    }
+    res.status(201).send('Talle creado exitosamente');
+  });
+});
+*/
+
 
 
 
@@ -71,6 +124,29 @@ router.delete("/:id", (req, res) => {
   }
   res.status(404).json("Product not found"); // Si no existe el producto devuelvo un 404
 });
+// ESTO DE ARRIBA SE BORRARIA
+
+/*
+// Ruta para eliminar un talle de un producto específico
+router.delete('/talles', (req, res) => {
+  const { id, talle } = req.body;
+  const sql = 'DELETE FROM producto_talle WHERE id = ? AND talle = ?';
+  
+  db.query(sql, [id, talle], (err, results) => {
+    if (err) {
+      console.error('Error ejecutando la consulta:', err);
+      res.status(500).send('Error en el servidor');
+      return;
+    }
+    if (results.affectedRows === 0) {
+      res.status(404).send('Talle no encontrado');
+    } else {
+      res.status(200).send('Talle eliminado exitosamente');
+    }
+  });
+});
+*/
+
 
 
 
@@ -87,5 +163,25 @@ router.put("/:id", (req, res) => {
   res.status(404).json("Product not found"); // Si no existe el producto devuelvo un 404
 });
 
+// ESTO DE ARRIBA SE BORRARIA
 
-module.exports = router; // Asegúrate de exportar el router correctamente
+/*
+router.put('/talles', (req, res) => {
+  const { id, oldTalle, newTalle } = req.body;
+  const sql = 'UPDATE producto_talle SET talle = ? WHERE id = ? AND talle = ?';
+  
+  db.query(sql, [newTalle, id, oldTalle], (err, results) => {
+    if (err) {
+      console.error('Error ejecutando la consulta:', err);
+      res.status(500).send('Error en el servidor');
+      return;
+    }
+    if (results.affectedRows === 0) {
+      res.status(404).send('Talle no encontrado');
+    } else {
+      res.status(200).send('Talle actualizado exitosamente');
+    }
+  });
+});
+*/
+

@@ -31,4 +31,7 @@ router.post("/superAdmin/crearProducto", (req, res) => {
     res.status(201).json({ message: "Product added successfully" });
 });
 
+
+// CREAR PANEL PARA BORRAR PRODUCTO
+
 module.exports = router;
