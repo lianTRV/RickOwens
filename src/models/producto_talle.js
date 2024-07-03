@@ -22,12 +22,13 @@ const writeProducts = (products) => {
     fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2), 'utf8');
 };
 // FUNCION PARA ESCRIBIR PRODUCTOS EN EL JSON
+// SE BORRA ? (no se usa json, se usa la DB ahora)
 
 
 
 
 
-// Ruta para obtener productos por categoría o todos los productos
+/* // Ruta para obtener productos por categoría o todos los productos
 router.get("/", (req, res) => {
   const { categoria } = req.query; // Obtengo la categoría de los parámetros de consulta
   if (categoria) {
@@ -39,9 +40,10 @@ router.get("/", (req, res) => {
   }
   res.json(products); // Devuelve todos los productos si no hay categoría
 });
-// ESTO DE ARRIBA SE BORRARIA
+// RUTA VIEJA
+*/
 
-/* // Ruta para obtener todos los talles
+// Ruta para obtener todos los talles de la DB
 router.get('/talles', (req, res) => {
   const sql = 'SELECT * FROM producto_talle';
   db.query(sql, (err, results) => {
@@ -53,10 +55,10 @@ router.get('/talles', (req, res) => {
     res.json(results);
   });
 });
-*/
 
 
 
+/*
 // Ruta para obtener un producto por ID
 router.get("/:id", (req, res) => {
   const { id } = req.params; // Obtengo el ID de los parámetros
@@ -64,10 +66,11 @@ router.get("/:id", (req, res) => {
   if (product) return res.json(product); // Si existe el producto lo devuelvo
   res.status(404).json("Product not found"); // Si no existe devuelvo un 404
 });
-// ESTO DE ARRIBA SE BORRARIA
+// RUTA VIEJA
+*/
 
-/*
-// RUTA PARA OBTENER LOS TALLES DE UN ID
+
+// Ruta para obtener los talles dispobiles de un id de la BD
 router.get('/talles/:id', (req, res) => {
   const productId = req.params.id;
   const sql = 'SELECT talle FROM producto_talle WHERE id = ?';
@@ -80,10 +83,10 @@ router.get('/talles/:id', (req, res) => {
     res.json(results);
   });
 });
-*/
 
 
 
+/*
 // Ruta para crear un nuevo producto
 router.post("/create", (req, res) => {
   const newProduct = req.body;
@@ -91,10 +94,11 @@ router.post("/create", (req, res) => {
   writeProducts(products);
   res.status(201).json({ message: "Product created successfully" });
 });
-// ESTO DE ARRIBA SE BORRARIA
+// RUTA VIEJA
+*/
 
-/*
-// Ruta para crear un nuevo talle para un producto
+
+// Ruta para crear un nuevo talle para un producto de la DB
   router.post('/talles', (req, res) => {
   const { id, talle } = req.body;
   const sql = 'INSERT INTO producto_talle (id, talle) VALUES (?, ?)';
@@ -108,11 +112,11 @@ router.post("/create", (req, res) => {
     res.status(201).send('Talle creado exitosamente');
   });
 });
-*/
 
 
 
 
+/*
 // Ruta para eliminar un producto por ID
 router.delete("/:id", (req, res) => {
   const { id } = req.params; // Obtengo el ID de los parámetros
@@ -124,10 +128,11 @@ router.delete("/:id", (req, res) => {
   }
   res.status(404).json("Product not found"); // Si no existe el producto devuelvo un 404
 });
-// ESTO DE ARRIBA SE BORRARIA
+// RUTA VIEJA
+*/
 
-/*
-// Ruta para eliminar un talle de un producto específico
+
+// Ruta para eliminar un talle de un producto específico de la DB
 router.delete('/talles', (req, res) => {
   const { id, talle } = req.body;
   const sql = 'DELETE FROM producto_talle WHERE id = ? AND talle = ?';
@@ -145,12 +150,12 @@ router.delete('/talles', (req, res) => {
     }
   });
 });
-*/
 
 
 
 
-// Ruta para modificar un producto por ID
+
+/* // Ruta para modificar un producto por ID
 router.put("/:id", (req, res) => {
   const { id } = req.params; // Obtengo el ID de los parámetros
   const updatedProduct = req.body; // Obtengo los datos actualizados del cuerpo de la solicitud
@@ -162,10 +167,11 @@ router.put("/:id", (req, res) => {
   }
   res.status(404).json("Product not found"); // Si no existe el producto devuelvo un 404
 });
+// RUTA VIEJA 
+*/
 
-// ESTO DE ARRIBA SE BORRARIA
 
-/*
+// Ruta para modificar un producto por talle de la DB (?)
 router.put('/talles', (req, res) => {
   const { id, oldTalle, newTalle } = req.body;
   const sql = 'UPDATE producto_talle SET talle = ? WHERE id = ? AND talle = ?';
@@ -183,5 +189,5 @@ router.put('/talles', (req, res) => {
     }
   });
 });
-*/
+
 

@@ -10,26 +10,28 @@
     <form action="/productos/admin/superAdmin/crearProducto" method="post"> 
         <h1 class="titulo-superAdmin"> AGREGAR PRODUCTO </h1>
         
-        <label for="name" class="campo-form-superAdmin">Nombre:</label>
+        <label for="nombre" class="campo-form-superAdmin">Nombre:</label>
         <input type="text" id="name" name="name" required><br><br>
 
-        <label for="image" class="campo-form-superAdmin">Imagen Link:</label>
+        <label for="imagen" class="campo-form-superAdmin">IMG (Link):</label>
         <input type="text" id="image" name="image" required><br><br>
         
-        <label for="price" class="campo-form-superAdmin">Precio:</label>
+        <label for="precio" class="campo-form-superAdmin">PRECIO:</label>
         <input type="number" id="price" name="price" required><br><br>
 
-        <label for="talle" class="campo-form-superAdmin">Talle:</label>
-        <input type="number" id="talle" name="talle " required><br><br>
-        
-        <label for="description" class="campo-form-superAdmin">Descripcion:</label>
-        <textarea id="description" name="description" required></textarea><br><br>
-        
-        <label for="categoria" class="campo-form-superAdmin">Categoria:</label>
+        <label for="categoria" class="campo-form-superAdmin">CATEGORIA:</label>
         <input type="text" id="categoria" name="categoria" required><br><br>
+
+        <label for="cant_disp" class="campo-form-superAdmin">STOCK:</label>
+        <input type="number" id="cant_disp" name="cant_disp" required><br><br>
         
-        <label for="genero" class="campo-form-superAdmin">Genero:</label>
+        <label for="genero" class="campo-form-superAdmin">GENERO ('Masculino' o 'Femenino'):</label>
         <input type="text" id="genero" name="genero" required><br><br>
+
+        <label for="talle" class="campo-form-superAdmin">TALLE:</label>
+        <input type="number" id="talle" name="talle " required><br><br>
+        <!-- 'TALLE' DEBE CONECTAR CON LA TABLA PRODUCTO_TALLE -->
+         <!-- EL RESTO DE INPUTs DEBEN CONECTAR CON LA TABLA PRODUCTO -->
         
         <button type="submit">Agregar producto</button>
     </form>
