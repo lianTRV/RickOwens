@@ -27,7 +27,6 @@ const writeProducts = (products) => {
 
 
 
-
 /* // Ruta para obtener productos por categoría o todos los productos
 router.get("/", (req, res) => {
   const { categoria } = req.query; // Obtengo la categoría de los parámetros de consulta

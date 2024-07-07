@@ -19,7 +19,7 @@ connection.connect((err) => {
 // Si los datos son incorrectos, no se accede a la base de datos
 
 
-connection.query('CREATE DATABASE IF NOT EXISTS rickowens_db', (err, results) => {
+connection.query('CREATE DATABASE IF NOT EXISTS sil_rickowens', (err, results) => {
     if (err) {
         console.error('Error creando la DB: ', err);
         return;
@@ -36,10 +36,11 @@ connection.query('CREATE DATABASE IF NOT EXISTS rickowens_db', (err, results) =>
                 CREATE TABLE IF NOT EXISTS producto (
                     id INT AUTO_INCREMENT PRIMARY KEY,
                     nombre VARCHAR (255) NOT NULL,
+                    img VARCHAR(255) NOT NULL,
                     precio INT NOT NULL,
-                    descripcion VARCHAR (255) NOT NULL,
                     categoria VARCHAR (255),
-                    FOREIGN KEY (categoria) REFERENCES categoriaProducto (categoria)
+                    cantidad_disp INT NOT NULL,
+                    genero VARCHAR(255) CHECK (genero = 'Masculino'OR genero = 'Femenino')
                 );
                 `;
 

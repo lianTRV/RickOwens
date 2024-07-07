@@ -74,7 +74,7 @@ router.get("/:id", (req, res) => {
 // Ruta para obtener un producto por ID de la DB
 router.get('/producto/:id', (req, res) => {
   const { id } = req.params;
-  const sql = 'SELECT * FROM producto WHERE id_prod = ?';
+  const sql = 'SELECT * FROM producto WHERE id = ?';
   
   db.query(sql, [id], (err, results) => {
     if (err) {
@@ -140,11 +140,11 @@ router.post("/create", (req, res) => {
 
 // Ruta para crear un nuevo producto en la DB
 router.post('/productos', (req, res) => {
-  const { nombre, img, precio, categoria, cant_disp, genero } = req.body;
+  const { nombre, img, precio, categoria, cantidad, genero } = req.body;
 
-  const sql = 'INSERT INTO producto (nombre, img, precio, categoria, cant_disp, genero) VALUES (?, ?, ?, ?, ?, ?)';
+  const sql = 'INSERT INTO producto (nombre, img, precio, categoria, cantidad, genero) VALUES (?, ?, ?, ?, ?, ?)';
   
-  db.query(sql, [nombre, img, precio, categoria, cant_disp, genero], (err, result) => {
+  db.query(sql, [nombre, img, precio, categoria, cantidad, genero], (err, result) => {
     if (err) {
       console.error('Error ejecutando la consulta:', err);
       res.status(500).send('Error en el servidor');
@@ -209,11 +209,11 @@ router.put("/:id", (req, res) => {
 // Ruta para modificar un producto por id de la tabla producto en la DB
 router.put('/productos/:id', (req, res) => {
   const { id } = req.params;
-  const { nombre, img, precio, categoria, cant_disp, genero } = req.body;
+  const { nombre, img, precio, categoria, cantidad, genero } = req.body;
   
-  const sql = `UPDATE producto SET nombre = ?, img = ?, precio = ?, categoria = ?, cant_disp = ?, genero = ? WHERE id = ?`;
+  const sql = `UPDATE producto SET nombre = ?, img = ?, precio = ?, categoria = ?, cantidad = ?, genero = ?, WHERE id = ?`;
   
-  db.query(sql, [nombre, img, precio, categoria, cant_disp, genero, id], (err, result) => {
+  db.query(sql, [nombre, img, precio, categoria, cantidad, genero, id], (err, result) => {
     if (err) {
       console.error('Error ejecutando la consulta:', err);
       res.status(500).send('Error en el servidor');
