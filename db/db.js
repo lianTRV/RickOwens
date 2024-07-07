@@ -33,14 +33,14 @@ connection.query('CREATE DATABASE IF NOT EXISTS sil_rickowens', (err, results) =
             }
 
             const createTableQuery = `
-                CREATE TABLE IF NOT EXISTS producto (
+                CREATE TABLE IF NOT EXIST producto (
                     id INT AUTO_INCREMENT PRIMARY KEY,
-                    nombre VARCHAR (255) NOT NULL,
-                    img VARCHAR(255) NOT NULL,
-                    precio INT NOT NULL,
-                    categoria VARCHAR (255),
-                    cantidad_disp INT NOT NULL,
-                    genero VARCHAR(255) CHECK (genero = 'Masculino'OR genero = 'Femenino')
+                    nombre VARCHAR(255) NOT NULL,
+                    img VARCHAR(255),
+                    precio DECIMAL(10, 2) NOT NULL,
+                    categoria VARCHAR(100),
+                    cantidad INT NOT NULL,
+                    genero VARCHAR(50)
                 );
                 `;
 
