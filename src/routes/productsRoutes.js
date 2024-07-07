@@ -11,9 +11,7 @@ router.put('/:id', productsController.updateProduct);
 router.delete('/:id', productsController.deleteProduct);
 // MODULOS IMPORTADOS DESDE productsController.js
 
-module.exports = {
-    router,
-    productsController
-}; // Asegúrate de exportar el router correctamente
+module.exports = router;
+ // Asegúrate de exportar el router correctamente
 
 
