@@ -3,7 +3,6 @@ const router = express.Router();
 const productsController = require("../controllers/productsController") ;
 //const products = require("../data/products.json"); // Importo el array de productos
 
-
 router.get('/', productsController.getAllProducts);
 router.get('/:id', productsController.getProductsById);
 router.post('/', productsController.createProduct);

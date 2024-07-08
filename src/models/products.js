@@ -24,25 +24,6 @@ const writeProducts = (products) => {
 // SE BORRA ? (no se usa json, se usa la DB ahora)
 
 
-
-//SE REALIZAN CAMBIOS DE RUTA, CAMBIA RUTA JSON A BD
-
-
-/* // Ruta para obtener productos por categoría o todos los productos
-router.get("/", (req, res) => {
-  const { categoria } = req.query; // Obtengo la categoría de los parámetros de consulta
-  if (categoria) {
-    const filteredCategory = products.filter(
-      (product) => product.categoria.toLowerCase() === categoria.toLowerCase()
-    );
-    console.log("Filtered Category:", filteredCategory);
-    return res.json(filteredCategory);
-  }
-  res.json(products); // Devuelve todos los productos si no hay categoría
-});
-// RUTA VIEJA */
-
-
 // Ruta para obtener los productos de la DB
 router.get('/productos', (req, res) => {
   const sql = 'SELECT * FROM producto';
@@ -56,19 +37,6 @@ router.get('/productos', (req, res) => {
     res.status(200).json(results);
   });
 });
-
-
-
-
-/* // Ruta para obtener un producto por ID
-router.get("/:id", (req, res) => {
-  const { id } = req.params; // Obtengo el ID de los parámetros
-  const product = products.find((product) => product.id == id); // Busco el producto por ID (se usa solo '==' y no '===' porque el id es un string y no un número entero)
-  if (product) return res.json(product); // Si existe el producto lo devuelvo
-  res.status(404).json("Product not found"); // Si no existe devuelvo un 404
-});
-// RUTA VIEJA 
-*/
 
 
 // Ruta para obtener un producto por ID de la DB
@@ -91,21 +59,6 @@ router.get('/producto/:id', (req, res) => {
 });
 
 
-
-
-
-/* // Ruta para obtener un producto por género
-router.get("/:genero", (req, res) => {
-  const { genero } = req.params; // Obtengo el género de los parámetros
-  const filteredProducts = products.filter(
-    (product) => product.genero == genero
-  ); // Busco los productos por género
-  if (filteredProducts.length > 0) return res.json(filteredProducts); // Si existen productos los devuelvo
-  res.status(404).json("Products not found"); // Si no existen devuelvo un 404
-});
-// RUTA VIEJA */
-
-
 // Ruta para obtener productos por genero
 router.get('/productos/genero/:genero', (req, res) => {
   const { genero } = req.params;
@@ -126,18 +79,6 @@ router.get('/productos/genero/:genero', (req, res) => {
 });
 
 
-
-
-/* // Ruta para crear un nuevo producto
-router.post("/create", (req, res) => {
-  const newProduct = req.body;
-  products.push(newProduct);
-  writeProducts(products);
-  res.status(201).json({ message: "Product created successfully" });
-});
-// RUTA VIEJA */
-
-
 // Ruta para crear un nuevo producto en la DB
 router.post('/productos', (req, res) => {
   const { nombre, img, precio, categoria, cantidad, genero } = req.body;
@@ -154,21 +95,6 @@ router.post('/productos', (req, res) => {
   });
 });
 
-
-
-/*
-// Ruta para eliminar un producto por ID
-router.delete("/:id", (req, res) => {
-  const { id } = req.params; // Obtengo el ID de los parámetros
-  const index = products.findIndex((product) => product.id == id); // Busco el índice del producto por ID
-  if (index !== -1) {
-    products.splice(index, 1); // Elimino el producto del array
-    writeProducts(products); // Guardo los cambios en el archivo JSON
-    return res.json({ message: "Product deleted successfully" });
-  }
-  res.status(404).json("Product not found"); // Si no existe el producto devuelvo un 404
-});
-// RUTA VIEJA */
 
 // Ruta para eliminar un producto por id de la tabla producto en la DB
 router.delete('/productos/:id', (req, res) => {
@@ -191,21 +117,6 @@ router.delete('/productos/:id', (req, res) => {
 
 
 
-/*
-// Ruta para modificar un producto por ID
-router.put("/:id", (req, res) => {
-  const { id } = req.params; // Obtengo el ID de los parámetros
-  const updatedProduct = req.body; // Obtengo los datos actualizados del cuerpo de la solicitud
-  const index = products.findIndex((product) => product.id == id); // Busco el índice del producto por ID
-  if (index !== -1) {
-    products[index] = { ...products[index], ...updatedProduct }; // Actualizo el producto
-    writeProducts(products); // Guardo los cambios en el archivo JSON
-    return res.json({ message: "Product updated successfully" });
-  }
-  res.status(404).json("Product not found"); // Si no existe el producto devuelvo un 404
-});
-// RUTA VIEJA */
-
 // Ruta para modificar un producto por id de la tabla producto en la DB
 router.put('/productos/:id', (req, res) => {
   const { id } = req.params;
@@ -226,4 +137,3 @@ router.put('/productos/:id', (req, res) => {
     }
   });
 });
-

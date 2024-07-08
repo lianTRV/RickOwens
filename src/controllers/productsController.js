@@ -21,9 +21,9 @@ const getProductsById = (req, res) => {
 // evitar inyecciones SQL
 
 const createProduct = (req, res) => {
-    const { nombre, img, precio, categoria, cantidad_disp, genero } = req.body;
-    const sql = 'INSERT INTO producto (nombre, img, precio, categoria, cantidad_disp, genero) VALUES ( ?, ?, ?, ?, ?, ?)';
-    db.query(sql, [ nombre, img, precio, categoria, cantidad_disp, genero ], (err, result) => {
+    const { nombre, img, precio, categoria, cantidad, genero } = req.body;
+    const sql = 'INSERT INTO producto (nombre, img, precio, categoria, cantidad, genero) VALUES ( ?, ?, ?, ?, ?, ?)';
+    db.query(sql, [ nombre, img, precio, categoria, cantidad, genero ], (err, result) => {
         if (err) throw err;
         res.json({ message: 'Producto creado correctamente', productsId: result.insertId});
     });
@@ -31,9 +31,10 @@ const createProduct = (req, res) => {
 // productsId o productId ????????????
 
 const updateProduct = (req, res) => {
-    const { nombre, img, precio, categoria, cantidad_disp, genero } = req.params;
-    const sql = 'UPDATE producto SET nombre = ?, img = ?, precio = ?, categoria = ?, cantidad_disp = ?, genero = ? WHERE id = ?';
-    db.query(sql, [nombre, img, precio, categoria, cantidad_disp, genero ], (err, result) => {
+    const { id } = req.params; // Extraer el id de los parámetros de la URL
+    const { nombre, img, precio, categoria, cantidad, genero } = req.body; // Extraer los datos del cuerpo de la solicitud
+    const sql = 'UPDATE producto SET nombre = ?, img = ?, precio = ?, categoria = ?, cantidad = ?, genero = ? WHERE id = ?';
+    db.query(sql, [nombre, img, precio, categoria, cantidad, genero, id ], (err, result) => {
         if (err) throw err;
         res.json({ message: 'Producto actualizado correctamente'});
     });

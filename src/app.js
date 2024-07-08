@@ -9,6 +9,8 @@ const db = require('./db/db');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+app.use(express.json()); //????
+
 // Configuración de body-parser
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));

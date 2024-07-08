@@ -1,9 +1,9 @@
 const mysql = require('mysql2');
 
 const connection = mysql.createConnection({
-    host: 'localhost',
-    user: 'root',
-    password: 'root',
+    host: 'mysql-sil.alwaysdata.net',
+    user: 'sil_grupo9',
+    password: 'CACgrupo9',
     database: 'sil_rickowens'
 });
 // EN EL METODO CREATE CONNECTION DEBEMOS INDICAR EL HOST, USER, PASSWORD Y DB QUE DEBERA UTILIZAR EL OBJETO PARA CONECTAR LA DB
@@ -34,14 +34,14 @@ connection.query('CREATE DATABASE IF NOT EXISTS sil_rickowens', (err, results) =
             }
 
             const createTableQuery = `
-                CREATE TABLE IF NOT EXIST producto (
+                CREATE TABLE IF NOT EXISTS producto (
                     id INT AUTO_INCREMENT PRIMARY KEY,
                     nombre VARCHAR(255) NOT NULL,
-                    img VARCHAR(255),
+                    img VARCHAR(255) NOT NULL,
                     precio DECIMAL(10, 2) NOT NULL,
-                    categoria VARCHAR(100),
+                    categoria VARCHAR(100) NOT NULL,
                     cantidad INT NOT NULL,
-                    genero VARCHAR(50)
+                    genero VARCHAR(50) NOT NULL
                 );
                 `;
 
