@@ -1,30 +1,8 @@
 const express = require("express");
 const router = express.Router();
-const products = require("../data/products.json"); // Importo el array de productos
 
 
-// const bodyParser = require('body-parser');
-// agregar body parser en products.js y productoTalle.js ?????
-
-// const productsController = require("../controllers/productsController.js") ;
-
-const fs = require("fs");
-const path = require("path");
-// AGREGO ESTOS MODULOS PARA OPERACIONES CON ARCHIVOS
-
-const productsFilePath = path.join(__dirname, '../data/products.json');
-// CONEXION PATH CON ARCHIVO JSON
-
-module.exports = router; // Asegúrate de exportar el router correctamente
-
-const writeProducts = (products) => {
-    fs.writeFileSync(productsFilePath, JSON.stringify(products, null, 2), 'utf8');
-};
-// FUNCION PARA ESCRIBIR PRODUCTOS EN EL JSON
-// SE BORRA ? (no se usa json, se usa la DB ahora)
-
-
-// Ruta para obtener los productos de la DB
+// Ruta obtener los productos
 router.get('/productos', (req, res) => {
   const sql = 'SELECT * FROM producto';
   
@@ -39,7 +17,7 @@ router.get('/productos', (req, res) => {
 });
 
 
-// Ruta para obtener un producto por ID de la DB
+// Ruta obtener producto por ID
 router.get('/producto/:id', (req, res) => {
   const { id } = req.params;
   const sql = 'SELECT * FROM producto WHERE id = ?';
@@ -59,7 +37,7 @@ router.get('/producto/:id', (req, res) => {
 });
 
 
-// Ruta para obtener productos por genero
+// Ruta obtener productos por genero
 router.get('/productos/genero/:genero', (req, res) => {
   const { genero } = req.params;
   const sql = 'SELECT * FROM producto WHERE genero = ?';
@@ -79,7 +57,7 @@ router.get('/productos/genero/:genero', (req, res) => {
 });
 
 
-// Ruta para crear un nuevo producto en la DB
+// Ruta rear un nuevo producto
 router.post('/productos', (req, res) => {
   const { nombre, img, precio, categoria, cantidad, genero } = req.body;
 
@@ -96,7 +74,7 @@ router.post('/productos', (req, res) => {
 });
 
 
-// Ruta para eliminar un producto por id de la tabla producto en la DB
+// Ruta eliminar un producto por id
 router.delete('/productos/:id', (req, res) => {
   const { id } = req.params;
   const sql = 'DELETE FROM producto WHERE id = ?';
@@ -116,8 +94,7 @@ router.delete('/productos/:id', (req, res) => {
 });
 
 
-
-// Ruta para modificar un producto por id de la tabla producto en la DB
+// Ruta modificar un producto por id
 router.put('/productos/:id', (req, res) => {
   const { id } = req.params;
   const { nombre, img, precio, categoria, cantidad, genero } = req.body;
@@ -137,3 +114,5 @@ router.put('/productos/:id', (req, res) => {
     }
   });
 });
+
+module.exports = router;

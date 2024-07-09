@@ -5,7 +5,7 @@ const productoTalleController = require("../controllers/productoTalleController"
 router.get('/', productoTalleController.getAllSizes);
 router.get('/:id', productoTalleController.getProductSizesById);
 router.post('/', productoTalleController.createSizeProduct);
-/* router.put('/:id_talle', productoTalleController.updateSizeProduct); */
 router.delete('/:id_talle', productoTalleController.deleteSizeProduct);
+// Modulos importados desde productoTalleController.js
 
-module.exports = router; // Asegúrate de exportar el router correctamente
+module.exports = router; 

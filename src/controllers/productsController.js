@@ -1,13 +1,15 @@
 const db = require('../db/db');
-// EL OBJETO DB POSEE LA CONEXION A LA DB
+// Conexion a DB
+
 
 const getAllProducts = (req, res) => {
-    const sql = 'SELECT * FROM producto'; // STRING QUE USARA LA DB
-    db.query(sql, (err, results) => { // el metodo query recibe del objeto DB recibe por parametro la consulta que generamos
+    const sql = 'SELECT * FROM producto';
+    db.query(sql, (err, results) => { 
         if (err) throw err;
         res.json(results);
     });
 };
+
 
 const getProductsById = (req, res) => {
     const { id } = req.params;
@@ -17,8 +19,7 @@ const getProductsById = (req, res) => {
         res.json(result);
     });
 };
-// EL ? es un marcador de posicion que sera reemplazado por el valor de id para
-// evitar inyecciones SQL
+
 
 const createProduct = (req, res) => {
     const { nombre, img, precio, categoria, cantidad, genero } = req.body;
@@ -28,17 +29,18 @@ const createProduct = (req, res) => {
         res.json({ message: 'Producto creado correctamente', productsId: result.insertId});
     });
 };
-// productsId o productId ????????????
+
 
 const updateProduct = (req, res) => {
-    const { id } = req.params; // Extraer el id de los parámetros de la URL
-    const { nombre, img, precio, categoria, cantidad, genero } = req.body; // Extraer los datos del cuerpo de la solicitud
+    const { id } = req.params;
+    const { nombre, img, precio, categoria, cantidad, genero } = req.body;
     const sql = 'UPDATE producto SET nombre = ?, img = ?, precio = ?, categoria = ?, cantidad = ?, genero = ? WHERE id = ?';
-    db.query(sql, [nombre, img, precio, categoria, cantidad, genero, id ], (err, result) => {
+    db.query(sql, [ nombre, img, precio, categoria, cantidad, genero, id ], (err, result) => {
         if (err) throw err;
         res.json({ message: 'Producto actualizado correctamente'});
     });
 };
+
 
 const deleteProduct = (req, res) => {
     const { id } = req.params;
@@ -48,6 +50,7 @@ const deleteProduct = (req, res) => {
         res.json({ message: 'Producto eliminado correctamente'});
     });
 };
+
 
 module.exports = {
     getAllProducts,
