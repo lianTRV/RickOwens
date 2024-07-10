@@ -1,9 +1,6 @@
 const express = require("express");
-const fs = require("fs");
 const path = require("path");
 const router = express.Router();
-const productsFilePath = path.join(__dirname, '../data/products.json');
-
 
 // Brinda el archivo HTML
 router.get("/superAdmin/crearProducto", (req, res) => {
