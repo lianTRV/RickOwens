@@ -1,20 +1,25 @@
 const express = require("express");
-const productsRouter = require("./routes/products"); // router = routes (¿?)
-
 const app = express();
-app.use(express.json()); // Para poder usar el cuerpo de las peticiones
+
+const productsRouter = require("./routes/productsRoutes");
+const productoTalleRoutes = require("./routes/productoTalleRoutes");
+const adminRoutes = require("./routes/admin");
+
+const bodyParser = require('body-parser');
+
+const PORT = process.env.PORT || 3000;
 
 
-const adminRoutes = require('./routes/admin');
-app.use(express.urlencoded({ extended: true }));
+// Config. body-parser
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
-// Use the admin routes
-app.use('/productos/admin', adminRoutes); // Cambiar productos por products (¿?)
-
-
+// Config. rutas
+app.use(express.json()); 
 app.use("/products", productsRouter);
+app.use("/productoTalle", productoTalleRoutes);
+app.use('/productos/admin', adminRoutes);
 
-const PORT = process.env.PORT || 3000; // Puerto en el que correrá el servidor
 app.listen(PORT, () => {
   console.log(`Server listening on port http://localhost:${PORT}`);
 });
